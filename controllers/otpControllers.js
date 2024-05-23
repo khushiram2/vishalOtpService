@@ -11,7 +11,7 @@ export async function sendOtp (req,res) {
     const otpstored=await otpModel.create({number:number,otp:otp})
     const smsTemplate=`Your verification code is ${otp}. Please use this code to verify your account. This code will expire in 5 minutes.\n\n #${hash}`
     await sendSMS(number,smsTemplate);
-res.status(200).send({message:"message sent sucessfully"})
+res.status(200).send({message:smsTemplate})
   } catch (error) {
     res.status(500).send({message:"internal server error"})
   }
