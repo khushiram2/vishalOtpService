@@ -1,8 +1,9 @@
-process.loadEnvFile()
+import * as dotenv from "dotenv";
 import otpRouter from "./routes/otpRoutes.js";
 import express from "express"
 import cors from "cors"
 import dbConnection from './database/dbconnection.js'
+dotenv.config()
 const app = express()
 app.use(express.json())
 app.use(cors())
